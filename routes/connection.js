@@ -8,7 +8,7 @@ var util = require("util");
 //     database:"dica_an_dico"
 // })
 
-var connection = mysql.createConnection({
+var conn = mysql.createConnection({
   host: "mysql-21ffbda8-akashramsonule-0c32.b.aivencloud.com", // e.g., "mysql.render.com"
   user: "avnadmin",
   password: "AVNS_rKdpWGqMQ-DVDJwwQv4",
