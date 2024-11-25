@@ -1,0 +1,100 @@
+<%- include("navbar.ejs") %>
+
+
+<div class="card card-body rounded-0 p-3 shadow table-responsive">
+    <h1 class="text-center">Service Enquiries</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Sr</th>
+            <th>Enquiry Status</th>
+            <th>Approved / Rejected</th>
+            <th>Enquiry Name</th>
+            <th>Enquiry Mobile</th>
+            <th>Enquiry Email</th>
+            <th>Enquiry Address</th>
+            <th>Plan Name</th>
+            <th>Enquiry date</th>
+            <th>Action</th>
+          
+           
+        </tr>
+        <%sr=1; for(i of sedata) { %>
+            <tr>
+                <td><%=sr++%></td>
+                <td><button class="btn btn-warning btn-sm status-btn"  data-status="<%= i.status %>">
+                    <%-i.status%></button>
+                </td>
+                <td>
+                    <!-- <a href="/admin/service_app/<%=i.id%>"> -->
+                        <button class="btn btn-sm btn-success" onclick="btnapp1('<%=i.id%>')">Approved</button>
+                    <!-- </a> -->
+                    <!-- <a href="/admin/service_rej/<%=i.id%>"> -->
+                        <button class="btn btn-sm btn-danger" onclick="btnrej1('<%=i.id%>')">Rejected</button>
+                    <!-- </a> -->
+                </td>
+
+                <td><%=i.enq_name%></td>
+                <td><%=i.enq_mobile%></td>
+                <td><%=i.enq_email%></td>
+                <td><%=i.enq_address%></td>
+                <td><%=i.service_plan%> </td>
+                <td><%=i.enq_date%> </td>
+                <td>
+                    <a href="/admin/service_del/<%=i.id%>"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>
+
+                </td>
+            </tr>
+        
+        <% } %>
+    </table>
+</div>
+
+
+<script>
+    // JavaScript to dynamically update button color based on status
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get all buttons with the class 'status-btn'
+        const statusButtons = document.querySelectorAll(".status-btn");
+
+        statusButtons.forEach((button) => {
+            // Get the status from the data attribute
+            const status = button.getAttribute("data-status");
+
+            // Set the button class based on the status
+            if (status === "Pending") {
+                button.classList.remove("btn-primary");
+                button.classList.add("btn-warning");
+            } else if (status === "Approved") {
+                button.classList.remove("btn-warning");
+                button.classList.add("btn-success");
+            } else if (status ==="Rejected"){
+                button.classList.remove("btn-warning");
+                button.classList.add("btn-danger")
+            }
+        });
+    });
+</script>
+
+<script>
+    function btnapp1(id){
+     var a=  confirm("Do You Want To Approved!");
+     if(a==true){
+      location.href="/admin/service_app/"+id
+     }
+     console.log(a)
+    }
+  
+  
+    function btnrej1(id){
+      var a = confirm("Do You Want To Rejected!");
+  
+      if(a==true){
+        location.href="/admin/service_rej/"+id
+        // console.log("hellow")
+      }
+    }
+  </script>
+
+
+<%- include("footer.ejs") %>

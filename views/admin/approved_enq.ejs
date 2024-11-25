@@ -1,0 +1,138 @@
+<%- include("navbar.ejs") %>
+<!-- <div class="card card-body py-3 shadow">
+
+<h1 class="text-center my-2">Approved Contact Enquiries</h1>
+
+<a class="btn btn-success" style="float:left;margin-right:20px;" href="https://codepen.io/collection/XKgNLN/" target="_blank">Other examples on Codepen</a>
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+	<thead>
+		<tr>
+			<th>Sr</th>
+			<th>Status</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Mobile</th>
+			<th>Email</th>
+			<th>Enquiry About</th>
+			<th>Message for us</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+
+    <%sr=1; for(i of cdata) { %>
+        <tr>
+            <td><%=sr++%></td>
+            <td><%=i.status%></td>
+            <td><%=i.enq_fname%></td>
+            <td><%=i.enq_lname%></td>
+            <td><%=i.enq_mobile%></td>
+            <td><%=i.enq_email%></td>
+            <td><%=i.enq_about%></td>
+            <td><%=i.enq_msg%></td>
+        </tr>
+
+    <% } %>
+	
+</table>
+
+</div>
+
+
+<script>
+    $(document).ready(function() {
+	
+	document.title='Simple DataTable';
+	
+	$('#example').DataTable(
+		{
+			"dom": '<"dt-buttons"Bf><"clear">lirtp',
+			"paging": true,
+			"autoWidth": true,
+			"buttons": [
+				'colvis',
+				'copyHtml5',
+        'csvHtml5',
+				'excelHtml5',
+        'pdfHtml5',
+				'print'
+			]
+		}
+	);
+});
+</script>
+
+
+
+ -->
+
+ <head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+
+
+ </head>
+ <style>
+ 
+   
+    .dt-buttons{
+      margin-bottom: 15px;
+        
+       
+    }
+  
+ </style>
+
+
+<table id="example" class="table table-striped table-bordered mt-5" cellspacing="0" width="100%">
+	<thead>
+		<tr>
+			<th>Sr</th>
+			<th>Status</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Mobile</th>
+			<th>Email</th>
+			<th>Enquiry About</th>
+			<th>Message for us</th>
+			
+		</tr>
+	</thead>
+
+    <% sr = 1; for (let i of cdata) { %>
+        <tr>
+            <td><%= sr++ %></td>
+            <td class="<%=(i.status=='Approved')?'text-success':'text-danger'%>"><%= i.status %></td>
+            <td><%= i.enq_fname %></td>
+            <td><%= i.enq_lname %></td>
+            <td><%= i.enq_mobile %></td>
+            <td><%= i.enq_email %></td>
+            <td><%= i.enq_about %></td>
+            <td><%= i.enq_msg %></td>
+        </tr>
+        <% } %>
+	
+</table>
+
+<script>
+    $(document).ready(function () {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+</script>
+
+
+
+
+<%- include("footer.ejs") %>

@@ -1,0 +1,70 @@
+<%- include("navbar.ejs") %>
+
+
+<div class="card card-body py-3 shadow">
+    <h1 class="text-center py-3">Employee Review Section</h1>
+
+    <form action="/admin/save_testi" method="post" enctype="multipart/form-data">
+        
+        <div class="row">
+            <div class="col-md-6">
+            <label class="py-3">Employee Name</label>
+            <input type="text" class="form-control" name="employee_name">
+
+            </div>
+
+            <div class="col-md-6">
+                <label class="py-3">Employee Position</label>
+                <input type="text" class="form-control" name="employee_position">
+            </div>
+
+            <div class="col-md-6">
+                <label class="py-3">Employee Image</label>
+                <input type="file" class="form-control" name="employee_img" >
+            </div>
+            <div class="col-md-6">
+                <label class="py-3">Employee Review</label>
+                <textarea name="employee_review" class="form-control"></textarea>
+            </div>
+
+            <div class="col-md-12 text-center py-3">
+                <button class="btn btn-primary py-2">Save Employee</button>
+            </div>
+        </div>
+
+    </form>
+
+    <h1 class="text-center py-3">Emplyoee Review Section</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Sr</th>
+            <th>Action</th>
+            <th>Employee Name</th>
+            <th>Employee Position</th>
+            <th>Employee Review</th>
+            <th>Employee Image</th>
+        </tr>
+        <%sr=1; for(i of tdata) { %>
+
+            <tr>
+                <td><%=sr++%></td>
+                <td> 
+                    <a href="/admin/delete_testi/<%=i.id%>">
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    </a>
+                </td>
+                <td><%=i.employee_name%></td>
+                <td><%=i.employee_position%></td>
+                <td><%=i.employee_review%></td>
+                <td>
+                    <img src="/uploads/<%=i.employee_img%>" height="100px">
+                </td>
+
+            </tr>
+        <% } %>
+    </table>
+
+</div>
+
+<%- include("footer.ejs") %>
