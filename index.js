@@ -13,6 +13,7 @@ app.use(session({
     secret :"awesdfs",
     resave:true,
     saveUninitialized:true
+    
 }))
 app.use("/",userrouter);
 app.use("/admin",adminrouter);
