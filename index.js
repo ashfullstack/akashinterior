@@ -16,7 +16,7 @@ app.use(session({
 }))
 app.use("/",userrouter);
 app.use("/admin",adminrouter);
-app.listen(3000);
+app.listen(1000);
 
 // const PORT = process.env.PORT || 3000;
 // console.log(`Attempting to listen on port ${PORT}`);
