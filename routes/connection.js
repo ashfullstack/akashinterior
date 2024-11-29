@@ -9,10 +9,10 @@ var util = require("util");
 // })
 
 var conn = mysql.createConnection({
-  host: "mysql-21ffbda8-akashramsonule-0c32.b.aivencloud.com", // e.g., "mysql.render.com"
-  user: "avnadmin",
-  password: "AVNS_rKdpWGqMQ-DVDJwwQv4",
-  database: "defaultdb",
+  host: "bcsjub8prsasbrpn2hhn-mysql.services.clever-cloud.com", // e.g., "mysql.render.com"
+  user: "u2b19nui4a7kvv4r",
+  password: "5PnTGS8ZHw494ZEjVT6Ur",
+  database: "bcsjub8prsasbrpn2hhn",
 });
 
 
