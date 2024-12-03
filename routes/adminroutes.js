@@ -21,7 +21,10 @@ function checkLogin(req, res, next) {
     if (req.session && req.session.logid) {
         next(); // Proceed to the next middleware or route handler
     } else {
-        res.redirect("/admin/login"); // Redirect to login if not logged in
+                const redirectUrl = "/admin/login?redirect=" + encodeURIComponent(req.originalUrl);
+
+        // res.redirect("/admin/login"); // Redirect to login if not logged in
+        res.redirect(redirectUrl);
     }
 }
 
