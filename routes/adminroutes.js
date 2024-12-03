@@ -4,16 +4,25 @@ var exe = require("./connection")
 
 
 
-function checkLogin(req,res,next){
+// function checkLogin(req,res,next){
     
-    if(req.session.logid == undefined){
-        res.redirect("/admin/login");
-    }
-    else{
-        next();
+//     if(req.session.logid == undefined){
+//         res.redirect("/admin/login");
+//     }
+//     else{
+//         next();
         
-    }
+//     }
 
+// }
+
+function checkLogin(req, res, next) {
+    // Check if the session contains a valid logid
+    if (req.session && req.session.logid) {
+        next(); // Proceed to the next middleware or route handler
+    } else {
+        res.redirect("/admin/login"); // Redirect to login if not logged in
+    }
 }
 
 
