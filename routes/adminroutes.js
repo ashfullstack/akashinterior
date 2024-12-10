@@ -43,7 +43,9 @@ router.post("/admin_login", async function (req, res) {
     }
     else {
         // res.send("<script>alert('Invalid Details');location = '/admin'</script>");
-        res.send("login failed")
+        // res.send("login failed")
+        res.redirect("/admin/")
+        
     }
 
 })
@@ -1227,7 +1229,7 @@ router.post("/save_team",async function(req,res){
 
     
 })
-
+f
 
 router.get("/delete_team/:id",async function(req,res){
     var id = req.params.id
