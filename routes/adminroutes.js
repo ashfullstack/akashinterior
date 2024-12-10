@@ -1229,7 +1229,7 @@ router.post("/save_team",async function(req,res){
 
     
 })
-f
+
 
 router.get("/delete_team/:id",async function(req,res){
     var id = req.params.id
