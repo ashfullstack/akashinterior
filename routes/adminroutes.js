@@ -44,7 +44,10 @@ router.post("/admin_login", async function (req, res) {
     else {
         // res.send("<script>alert('Invalid Details');location = '/admin'</script>");
         // res.send("login failed")
-        res.redirect("/admin/")
+        // res.redirect("/admin/")
+        var obj ={"warn":"Wrong username OR password !"}
+        
+        res.render("admin/login.ejs")
         
     }
 
@@ -262,7 +265,8 @@ router.post("/save_add_work",async function(req,res){
 
 
 router.get("/login",function(req,res){
-    res.render("admin/login.ejs")
+    var obj ={"warn":""}
+    res.render("admin/login.ejs",obj)
 })
 
 
