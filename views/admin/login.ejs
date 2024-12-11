@@ -58,7 +58,13 @@
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4 text-black">Login to Your Admin Account</h5>
                     <p class="text-center small text-black">Enter your username & password to login</p>
+
+<%if(warn!= ""){%>
+
+
 <span class="text-danger"><%=warn%></span>
+
+<%}%>
                   </div>
                   <form action="/admin/admin_login" method="post">
                     <div class="col-12">
