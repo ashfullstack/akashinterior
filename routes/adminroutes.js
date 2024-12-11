@@ -47,7 +47,7 @@ router.post("/admin_login", async function (req, res) {
         // res.redirect("/admin/")
         var obj ={"warn":"Wrong username OR password !"}
         
-        res.render("admin/login.ejs")
+        res.render("admin/login.ejs",obj)
         
     }
 
